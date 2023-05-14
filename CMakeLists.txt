@@ -3,4 +3,4 @@ project(DSA_5_1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(DSA_5_1 main.cpp table.cpp table.h record.cpp record.h)
+add_executable(DSA_5_1 main.cpp table.cpp table.h record.cpp record.h table_vect.cpp table_vect.h)

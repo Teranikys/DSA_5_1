@@ -1,22 +1,22 @@
 //
-// Created by Влад on 13/05/2023.
+// Created by Влад on 14/05/2023.
 //
 
 #include <iostream>
-#include "table.h"
+#include "table_vect.h"
 
-void Table::output_table() {
-    if (n == 0){
+void Table_vect::output_table() {
+    if (data.empty()){
         cout << "Таблица всё ещё пустая. Надо добавить хотя бы одну запись, чтобы её вывести.\n";
     } else {
-        for (int i = 0; i < n; ++i) {
-            data[i].output_record();
+        for (auto & elem : data) {
+            elem.output_record();
         }
     }
 }
 
-void Table::delete_record() {
-    if (n == 0){
+void Table_vect::delete_record() {
+    if (data.empty()){
         cout << "Таблица всё ещё пустая. Надо добавить хотя бы одну запись, чтобы что-нибудь удалить.\n";
     } else {
         int subject_num;
@@ -26,42 +26,35 @@ void Table::delete_record() {
         }
         cout << "Напишите код предмета: ";
         cin >> subject_num;
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < data.size(); ++i) {
             if (data[i].subject_num == subject_num) {
-                for (int j = i; j < n - 1; ++j) {
-                    data[j] = data[j + 1];
-                }
-                n = n - 1;
+                data.erase(data.cbegin() + i);
                 i--;
             }
         }
     }
 }
 
-void Table::insert_record() {
+void Table_vect::insert_record() {
     record new_record{};
     new_record.create_record();
     int i;
-    for (i = 0; i < n; ++i){
+    for (i = 0; i < data.size(); ++i){
         if (data[i].day == new_record.day){
             break;
         }
     }
-    for (int j = n - 1; j >= i; --j){
-        data[j + 1] = data[j];
-    }
-    data[i] = new_record;
-    n = n + 1;
+    data.insert(data.cbegin() + i, new_record);
 }
 
-void Table::subject_hours() {
-    if (n == 0){
+void Table_vect::subject_hours() {
+    if (data.empty()){
         cout << "Таблица всё ещё пустая. Надо добавить хотя бы одну запись, чтобы посчитать количество часов.\n";
     } else {
         int lec_num = 0, sem_num = 0, lab_num = 0, prakt_num = 0;
 
-        for (int i = 0; i < n; ++i) {
-            switch (data[i].classtype_num) {
+        for (auto & elem : data) {
+            switch (elem.classtype_num) {
                 case 0:
                     lec_num += 2;
                     break;

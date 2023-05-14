@@ -11,7 +11,6 @@
 
 using namespace std;
 
-const int N = 100;
 const std::string subject_dict[5] = {
         "Data Structures",
         "OOP",

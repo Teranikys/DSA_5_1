@@ -1,8 +1,9 @@
 #include <iostream>
 #include "table.h"
+#include "table_vect.h"
 
 int main() {
-    Table table;
+    Table_vect table;
 
     while (true) {
         cout << "Меню\n";

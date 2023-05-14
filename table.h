@@ -9,6 +9,8 @@
 
 #include "record.h"
 
+const int N = 100;
+
 struct Table {
     int n = 0;
     record data[N]{};

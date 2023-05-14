@@ -11,11 +11,12 @@ void record::create_record() {
 }
 
 void record::output_record() const {
-    cout << "Номер группы: " << group_num << '\n';
+    cout << group_num << subject_num << day << time_num << classroom << classtype_num << '\n';
+    /*cout << "Номер группы: " << group_num << '\n';
     cout << "Дисциплина: " << subject_dict[subject_num] << '\n';
     cout << "День недели: " << day << '\n';
     cout << "Номер пары: " << time_num << '\n';
     cout << "Номер аудитории: " << classroom << '\n';
-    cout << "Вид занятия: " << classtype_dict[classtype_num] << "\n\n";
+    cout << "Вид занятия: " << classtype_dict[classtype_num] << "\n\n";*/
 }
 
