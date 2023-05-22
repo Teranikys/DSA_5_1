@@ -15,9 +15,9 @@ struct Table_vect {
     vector<record> data;
 
     void output_table();
-    void delete_record();
     void insert_record();
-    void subject_hours();
+    int linear_search(int art);
+    int sentinel_search(int art);
 };
 
 
